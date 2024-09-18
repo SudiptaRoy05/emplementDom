@@ -1,11 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Counter</title>
 </head>
+
 <body>
-    
+    <div>
+
+        <p>count : <span id="num">0</span> :<span id="clean"> clean</span> </p> 
+        <button class="btn" id="decreas">decrease[-]</button>
+        <button class="btn" id="increas">increase[+]</button>
+        <br><br>
+        <button class="btn" id="stop">stop</button>
+        <button class="btn" disabled id="start">Start</button>
+    </div>
+    <script>
+        // console.log('')
+        document.getElementById('decreas').addEventListener('click', function () {
+            let count = document.getElementById('num').innerText;
+            let inte = parseInt(count);
+            inte--;
+            document.getElementById('num').innerText = inte;
+            console.log(inte)
+        })
+        document.getElementById('increas').addEventListener('click', function () {
+            let count = document.getElementById('num').innerText;
+            let inte = parseInt(count);
+            inte++;
+            document.getElementById('num').innerText = inte;
+            console.log(inte)
+        })
+
+        document.getElementById('clean').addEventListener('click', function () {
+            let count = document.getElementById('num').innerText;
+            let inte = parseInt(count);
+            inte = 0;
+            document.getElementById('num').innerText = inte;
+        })
+
+        document.getElementById('stop').addEventListener('click', function () {
+            document.getElementById('decreas').setAttribute('disabled', 'true');
+            document.getElementById('increas').setAttribute('disabled', 'true');
+            document.getElementById('start').removeAttribute('disabled', 'true');
+        })
+
+        document.getElementById('start').addEventListener('click', function () {
+            document.getElementById('decreas').removeAttribute('disabled', 'true');
+            document.getElementById('increas').removeAttribute('disabled', 'true');
+            document.getElementById('start').setAttribute('disabled', 'true');
+        })
+
+
+    </script>
 </body>
+
 </html>
